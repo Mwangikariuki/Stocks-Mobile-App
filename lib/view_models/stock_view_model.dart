@@ -5,9 +5,9 @@ class StocksViewModel {
 
   StocksViewModel({required Stocks stock}) : _stocks = stock;
 
-  String get name {
-    return _stocks.name;
-  }
+  // String get name {
+  //   return _stocks.name;
+  // }
 
   String get symbol {
     return _stocks.symbol;
@@ -29,15 +29,11 @@ class StocksViewModel {
     return _stocks.high;
   }
 
-  double get dividend {
-    return _stocks.dividend;
-  }
-
-  double get close {
+  double? get close {
     return _stocks.close;
   }
 
-  double get volume {
+  dynamic get volume {
     return _stocks.volume;
   }
 }

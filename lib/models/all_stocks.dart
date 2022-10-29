@@ -1,26 +1,26 @@
 import 'dart:convert';
 
 class Stocks {
-  final String name;
+  //final String name;
   final String symbol;
   final String date;
   final double open;
   final double low;
   final double high;
-  final double dividend;
-  final double close;
-  final double volume;
+ // final int dividend;
+  final double? close;
+  final dynamic volume;
 
-  Stocks({required this.name, required this.symbol, required this.open, required this.low, required this.high, required this.dividend, required this.close, required this.volume, required this.date});
+  Stocks({ required this.symbol, required this.open, required this.low, required this.high, required this.close, required this.volume, required this.date});
 
   factory Stocks.fromJson(Map<String, dynamic> json) {
     return Stocks(
-      name: json['name'],
+     // name: json['name'],
       symbol: json['symbol'],
       open: json['open'],
       low: json['low'],
       high: json['high'],
-      dividend: json['dividend'],
+     // dividend: json['dividend'],
       close: json['close'],
       volume: json['volume'],
       date: json['date']
