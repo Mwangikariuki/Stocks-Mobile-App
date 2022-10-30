@@ -30,16 +30,18 @@ the app.
 Please install the dependencies using ```flutter pub get``` command to install the dependencies.
 The app was designed and made using the latest version of flutter.
 
-The ```utils/constants.dart``` file has the internet and connection constants including the ```API_URL```
-and the ```API_KEY``` there is also a localhost link that was used during development but you can ignore that
+The ```utils/constants.dart``` file has the internet and connection constants including the ```INTRADAY_TICKERS```
+and the ```API_KEY``` there is also a ```localhost``` link that was used during development but you can ignore that
 
 ## Known Issues
+
 The app fetches data from the marketplace API. They currently have the free paid versions of the 
 API, its highly advised that you input your ```API_Key```. The one that is there is limited to a 100
 requests and can time out any moment. The file to change is ```/utils/constants.dart``` and change the 
 ```API_KEY```.
 
 If you don't have or you are angry at the API provider you can make and endpoint serving 
+```
 { "pagination": {
     "limit": 100,
     "offset": 0,
@@ -58,7 +60,9 @@ If you don't have or you are angry at the API provider you can make and endpoint
    "symbol": "AAPL",
     "exchange": "IEXG"
     },]
-} 
+}
+```
+
 and then change the location the app goes to get the data from API to localhost and you are good to
 go 
 

@@ -12,23 +12,23 @@ class CheckConnection extends StatefulWidget{
 }
 
 class _CheckConnection extends State{
-  StreamSubscription? internetconnection;
-  bool isoffline = false;
+  StreamSubscription? internetConnection;
+  bool isOffline = false;
 
   @override
   void initState() {
-    internetconnection = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+    internetConnection = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
       if(result == ConnectivityResult.none){
         setState(() {
-          isoffline = true;
+          isOffline = true;
         });
       }else if(result == ConnectivityResult.mobile){
         setState(() {
-          isoffline = false;
+          isOffline = false;
         });
       }else if(result == ConnectivityResult.wifi){
         setState(() {
-          isoffline = false;
+          isOffline = false;
         });
       }
     });
@@ -39,13 +39,13 @@ class _CheckConnection extends State{
   @override
   dispose() {
     super.dispose();
-    internetconnection!.cancel();
+    internetConnection!.cancel();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: errorMessage("No Internet Connection Available", isoffline),
+      child: errorMessage("No Internet Connection Available", isOffline),
     );
   }
 

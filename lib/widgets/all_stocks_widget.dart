@@ -35,7 +35,6 @@ List stock;
 
   @override
   Widget build(BuildContext context) {
-    print(stock);
     var listViewModel = Provider.of<StocksListViewModel>(context);
     return Column(
       children: [

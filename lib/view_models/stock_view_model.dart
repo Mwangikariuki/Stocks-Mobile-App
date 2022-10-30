@@ -12,7 +12,7 @@ class StocksViewModel {
 
   String get date {
     final dateTime = DateFormat("yyyy-mm-ddTHH:mm:ssZ").parse(_stocks.date, true);
-    return DateFormat.yMMMMEEEEd('en-us').format(dateTime).toString();
+    return DateFormat.yMMMMd('en-us').format(dateTime).toString();
   }
 
   double get open {

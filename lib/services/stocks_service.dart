@@ -6,7 +6,6 @@ class StockWebService {
   var dio = new Dio();
 
   Future<List<Stocks>> fetchAllStocksByDay(String time) async {
-/* change local host to the api */
     final response  = await dio.get(Constants.getStocksFor(time));
 
     if(response.statusCode == 200) {
