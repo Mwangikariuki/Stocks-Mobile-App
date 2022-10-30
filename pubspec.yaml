@@ -38,8 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   dio: ^4.0.6
   provider: ^6.0.4
-  autocomplete_textfield: ^2.0.1
   connectivity_plus: ^3.0.2
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +81,16 @@ flutter:
   # example:
   assets:
     - assets/raven.jpg
+    - assets/alibaba.jpg
+    - assets/alphabet.jpg
+    - assets/amazon.png
+    - assets/apple.jpg
+    - assets/johnson&johnson.png
+    - assets/jpmorgan.png
+    - assets/meta.png
+    - assets/microsoft.png
+    - assets/visa.png
+    - assets/vodafone.png
 
   fonts:
     - family: OpenSans

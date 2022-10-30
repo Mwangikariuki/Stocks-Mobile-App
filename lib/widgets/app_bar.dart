@@ -26,9 +26,6 @@ class AppBarWidget extends StatelessWidget {
               ),
             ),
           ),
-          const Icon(Icons.more_vert,
-            color: Colors.black,
-          )
         ],
     );
   }

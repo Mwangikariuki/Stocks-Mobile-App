@@ -60,7 +60,6 @@ class _CheckConnection extends State{
             margin: const EdgeInsets.only(right:6.00),
             child: const Icon(Icons.info, color: Colors.white),
           ),
-
           Text(text, style: const TextStyle(color: Colors.white)),
         ]),
       );

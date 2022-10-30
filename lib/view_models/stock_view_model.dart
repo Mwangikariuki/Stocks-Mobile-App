@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:stock_market_app/models/all_stocks.dart';
 
 class StocksViewModel {
@@ -5,16 +6,13 @@ class StocksViewModel {
 
   StocksViewModel({required Stocks stock}) : _stocks = stock;
 
-  // String get name {
-  //   return _stocks.name;
-  // }
-
   String get symbol {
     return _stocks.symbol;
   }
 
   String get date {
-    return _stocks.date;
+    final dateTime = DateFormat("yyyy-mm-ddTHH:mm:ssZ").parse(_stocks.date, true);
+    return DateFormat.yMMMMEEEEd('en-us').format(dateTime).toString();
   }
 
   double get open {
