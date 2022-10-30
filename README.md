@@ -40,7 +40,7 @@ requests and can time out any moment. The file to change is ```/utils/constants.
 ```API_KEY```.
 
 If you don't have or you are angry at the API provider you can make and endpoint serving 
-```{ "pagination": {
+{ "pagination": {
     "limit": 100,
     "offset": 0,
     "count": 10,
@@ -57,8 +57,8 @@ If you don't have or you are angry at the API provider you can make and endpoint
     "date": "2022-10-28T16:00:00+0000",
    "symbol": "AAPL",
     "exchange": "IEXG"
-    }, ]
-}```
+    },]
+} 
 and then change the location the app goes to get the data from API to localhost and you are good to
 go 
 
