@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 class Constants {
   static const String localhost = "http://192.168.100.38:4000/api";
 
-  static const API_KEY = "65ad9c4d7a696d81597608176c05582a";
+  static const API_KEY = "6e716aea5734186ea358cbae1b0d246d";
 
   static const String INTRADAY_TICKERS = "http://api.marketstack.com/v1/intraday/latest?access_key=$API_KEY&symbols=AAPL,MSFT,AMZN,GOOGL,BABA,FB,VOD,V,JPM,JNJ";
 

@@ -27,11 +27,11 @@ class StocksViewModel {
     return _stocks.high;
   }
 
-  double? get close {
-    return _stocks.close;
+  double get close {
+    return _stocks.close ?? 0;
   }
 
   dynamic get volume {
-    return _stocks.volume;
+    return _stocks.volume ?? 0;
   }
 }

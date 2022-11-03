@@ -35,7 +35,9 @@ List stock;
 
   @override
   Widget build(BuildContext context) {
+
     var listViewModel = Provider.of<StocksListViewModel>(context);
+
     return Column(
       children: [
         Padding(
@@ -45,12 +47,12 @@ List stock;
               setState(() {
                 listSearch = listViewModel.stocks
                     .where((element) =>
-                    element.symbol.toLowerCase().contains(value.toLowerCase()))
+                    element.symbol.contains(value.toUpperCase()))
                     .toList();
               });
             },
             controller: _textEditingController,
-           focusNode: _textFocusNode,
+            focusNode: _textFocusNode,
             decoration: const InputDecoration(
                 labelText: "Search Tickers",
                 hintText: "Search Tickers",
@@ -70,7 +72,9 @@ List stock;
               ? listSearch!.length
               : listViewModel.stocks.length,
           itemBuilder: (BuildContext context, int index) {
-            var sym = listViewModel.stocks[index].symbol;
+            var sym = _textEditingController!.text.isNotEmpty
+                ? listSearch![index].symbol
+                : listViewModel.stocks[index].symbol;
             String name;
             String image;
             if(sym == "AAPL"){
@@ -105,11 +109,18 @@ List stock;
               image = "assets/alibaba.jpg";
             }
             else {
-              throw Exception('Unknown Ticker');
+              name = "";
+              image = "";
             }
 
-            var close = listViewModel.stocks[index].close ?? 0;
-            var open = listViewModel.stocks[index].open ?? 0;
+            var close = _textEditingController!.text.isNotEmpty
+                ? listSearch![index].close
+                : listViewModel.stocks[index].close;
+
+            var open = _textEditingController!.text.isNotEmpty
+                ? listSearch![index].open
+                : listViewModel.stocks[index].open;
+
             var total = close - open;
 
             var icon = total > 0 ? const Icon(Icons.upload_rounded, color: Colors.green) : const Icon(Icons.download_rounded, color: Colors.red);
@@ -128,7 +139,9 @@ List stock;
             );
             return GestureDetector(
               onTap: (){
-                _showSingleStockDetails(context, listViewModel.stocks[index]);
+                _showSingleStockDetails(context, _textEditingController!.text.isNotEmpty
+                    ? listSearch![index]
+                    : listViewModel.stocks[index]);
               },
               child: (
                   Card(
@@ -156,25 +169,27 @@ List stock;
                               padding: const EdgeInsets.fromLTRB(0, 12, 12, 2),
                               child: totalTradedText,
                             ),
-                        ],),
+                          ],),
                         const SizedBox(height: 10,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
                               padding: const EdgeInsets.fromLTRB(12, 0, 0, 8),
-                              child: Text(listViewModel.stocks[index].volume.toString() == "null" ? "0 Traded" : listViewModel.stocks[index].volume.toString(),
+                              child: Text(_textEditingController!.text.isNotEmpty
+                                  ? listSearch![index].volume.toString()
+                                  : listViewModel.stocks[index].volume.toString(),
                                 style: const TextStyle(
                                   fontFamily: 'OpenSans-Bold',
                                   fontSize: 20,
                                 ),
                               ),
                             ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 12, 8),
-                            child: icon,
-                          ),
-                        ],)
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0, 0, 12, 8),
+                              child: icon,
+                            ),
+                          ],)
                       ],
                     ),
                   )
@@ -183,7 +198,7 @@ List stock;
           },
         ),
       ],
-    );
+        );
   }
 
 }
